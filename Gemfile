@@ -29,6 +29,8 @@ gem 'jquery-rails'
 gem 'paperclip'
 # Masonry
 gem 'masonry-rails'
+# Acts As Votable
+gem 'acts_as_votable'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

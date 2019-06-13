@@ -1,5 +1,6 @@
 class PicsController < ApplicationController
-    before_action :set_pic, only: [:show, :edit, :update, :destroy]
+    before_action :set_pic, only: [:show, :edit, :update, :destroy, :upvote]
+    before_action :authenticate_user!, except: [:index, :show]
 
     def index
         @pics = Pic.all.order(created_at: :desc)
@@ -39,6 +40,11 @@ class PicsController < ApplicationController
         else
             redirect_to @pic, notice: 'It not was destroyed!'
         end
+    end
+
+    def upvote
+        @pic.upvote_by current_user
+        redirect_to @pic
     end
 
     private
